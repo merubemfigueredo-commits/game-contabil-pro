@@ -451,8 +451,7 @@ if ranking_error:
     st.warning(ranking_error)
 elif not spreadsheet_configured():
     st.info(
-        "Ranking local/offline ativo. Para compartilhar resultados, configure "
-        "a URL da planilha em `.streamlit/secrets.toml` conforme o README."
+        "Digite seu nome abaixo para salvar no ranking global"
     )
 
 if abs(difference) < 0.01:
