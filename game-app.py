@@ -148,7 +148,7 @@ def ranking_dataframe() -> pd.DataFrame:
     if not st.session_state.ranking:
         return empty_ranking()
     ranking = pd.DataFrame(st.session_state.ranking, columns=RANKING_COLUMNS)
-    return ranking.sort_values("xp", ascending=False, kind="stable").reset_index(
+    return ranking.sort_values("pontos", ascending=False, kind="stable").reset_index(
         drop=True
     )
 
