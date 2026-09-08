@@ -438,7 +438,7 @@ else:
         columns={"nome": "Nome", "pontos": "Pontos", "nivel": "Nível", "data": "Data"}
     )
     st.dataframe(ranking_view, use_container_width=True, hide_index=True)
-    chart_data = ranking.head(5).set_index("nome")[["xp"]].rename(columns={"pontos": "Pontos"})
+    chart_data = ranking.head(5).set_index("nome")[["pontos"]].rename(columns={"pontos": "Pontos"})
     st.bar_chart(chart_data)
     st.download_button(
         "📄 Baixar ranking em PDF",
