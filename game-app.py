@@ -270,7 +270,7 @@ st.title("🏆 Contabilidade Game PRO")
 st.write("Aprenda lançamentos contábeis na prática, com feedback imediato.")
 
 balances = calculate_balances(st.session_state.lancamentos)
-level = max(1, st.session_state.xp // 50 + 1)
+level = max(1, st.session_state.pontos // 50 + 1)
 
 m1, m2, m3, m4 = st.columns(4)
 m1.metric("Seus pontos", st.session_state.pontos)
