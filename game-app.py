@@ -190,7 +190,7 @@ def ranking_pdf(ranking: pd.DataFrame) -> bytes:
         values = [
             str(position),
             str(row["nome"]),
-            str(int(row["xp"])),
+            str(int(row["pontos"])),
             str(int(row["nivel"])),
             str(row["data"]),
         ]
