@@ -15,7 +15,7 @@ st.set_page_config(
 )
 
 APP_TITLE = "Game Contábil PRO"
-RANKING_COLUMNS = ["nome", "xp", "nivel", "data"]
+RANKING_COLUMNS = ["nome", "pontos", "nivel", "data"]
 
 # Plano de contas didático. A natureza determina como o saldo da conta é calculado.
 PLANO = {
@@ -67,7 +67,7 @@ CHALLENGES = [
 def reset_game() -> None:
     """Volta o jogo ao estado inicial, sem depender de dados externos."""
     st.session_state.lancamentos = [entry.copy() for entry in INITIAL_ENTRIES]
-    st.session_state.xp = 0
+    st.session_state.pontos = 0
     st.session_state.desafio_ativo = None
     st.session_state.flash = "Jogo reiniciado com o lançamento inicial."
 
@@ -76,7 +76,7 @@ def init_state() -> None:
     st.session_state.setdefault(
         "lancamentos", [entry.copy() for entry in INITIAL_ENTRIES]
     )
-    st.session_state.setdefault("xp", 0)
+    st.session_state.setdefault("pontos", 0)
     st.session_state.setdefault("desafio_ativo", None)
     st.session_state.setdefault("flash", "")
     st.session_state.setdefault("ranking", [])
@@ -176,7 +176,7 @@ def ranking_pdf(ranking: pd.DataFrame) -> bytes:
     pdf.ln(6)
 
     widths = [18, 78, 28, 28, 38]
-    headers = ["Pos.", "Nome", "XP", "Nível", "Data"]
+    headers = ["Pos.", "Nome", "Pontos", "Nível", "Data"]
     pdf.set_fill_color(23, 37, 84)
     pdf.set_text_color(255, 255, 255)
     pdf.set_font("Helvetica", "B", 10)
@@ -252,7 +252,7 @@ if st.session_state.flash:
 
 with st.sidebar:
     st.header("🎮 Controles")
-    st.caption("Registre lançamentos, feche o balanço e acumule XP.")
+    st.caption("Registre lançamentos, feche o balanço e acumule pontos.")
     st.divider()
     if st.button("🔄 Reiniciar jogo", use_container_width=True):
         reset_game()
@@ -262,7 +262,7 @@ with st.sidebar:
     st.markdown(
         "1. Registre fatos no **Diário**.\n"
         "2. Confira a balança no **Balanço Patrimonial**.\n"
-        "3. Resolva um desafio para ganhar XP.\n"
+        "3. Resolva um desafio para ganhar pontos.\n"
         "4. Adicione seu resultado e baixe o ranking em PDF."
     )
 
@@ -273,13 +273,13 @@ balances = calculate_balances(st.session_state.lancamentos)
 level = max(1, st.session_state.xp // 50 + 1)
 
 m1, m2, m3, m4 = st.columns(4)
-m1.metric("Seu XP", st.session_state.xp)
+m1.metric("Seus pontos", st.session_state.pontos)
 m2.metric("Nível", level)
 m3.metric("Lançamentos", len(st.session_state.lancamentos))
 m4.metric("Resultado", brl(balances["lucro"]))
 
 st.header("🕵️ Modo Detetive")
-st.caption("Encontre o lançamento correto e receba +50 XP.")
+st.caption("Encontre o lançamento correto e receba +50 pontos.")
 
 if st.button("🎲 Gerar desafio", type="secondary"):
     st.session_state.desafio_ativo = random.choice(CHALLENGES)
@@ -312,9 +312,9 @@ if st.session_state.desafio_ativo:
         elif challenge_is_correct(
             challenge, answer_debit, answer_credit, float(answer_value)
         ):
-            st.session_state.xp += 50
+            st.session_state.pontos += 50
             st.session_state.desafio_ativo = None
-            st.session_state.flash = "Resposta correta! Você ganhou +50 XP. 🎉"
+            st.session_state.flash = "Resposta correta! Você ganhou +50 pontos. 🎉"
             st.rerun()
         else:
             st.session_state.challenge_error = (
@@ -337,7 +337,7 @@ with st.form("diario_form", clear_on_submit=True):
     debit = d2.selectbox("Débito", accounts, index=2)
     credit = d3.selectbox("Crédito", accounts, index=4)
     value = d4.number_input("Valor (R$)", min_value=0.01, value=500.00, step=50.00)
-    launch = st.form_submit_button("Lançar +10 XP", type="primary")
+    launch = st.form_submit_button("Lançar +10 pontos", type="primary")
 
 if launch:
     if not description.strip():
@@ -353,8 +353,8 @@ if launch:
                 "valor": round(float(value), 2),
             }
         )
-        st.session_state.xp += 10
-        st.session_state.flash = "Lançamento incluído! Você ganhou +10 XP."
+        st.session_state.pontos += 10
+        st.session_state.flash = "Lançamento incluído! Você ganhou +10 pontos."
         st.rerun()
 
 ledger = pd.DataFrame(st.session_state.lancamentos)
@@ -376,7 +376,7 @@ st.dataframe(
 if len(st.session_state.lancamentos) > 1:
     if st.button("Excluir último lançamento", type="secondary"):
         removed = st.session_state.lancamentos.pop()
-        st.session_state.xp = max(0, st.session_state.xp - 10)
+        st.session_state.pontos = max(0, st.session_state.pontos - 10)
         st.session_state.flash = f"Lançamento “{removed['desc']}” excluído."
         st.rerun()
 
@@ -412,7 +412,7 @@ ranking = ranking_dataframe()
 
 if abs(difference) < 0.01:
     with st.form("ranking_form"):
-        name = st.text_input("Seu nome", max_chars=40, placeholder="Ex.: Ana")
+        name = st.text_input("Seu nome", max_chars=40, placeholder="Ex.: Rubem")
         add_to_ranking = st.form_submit_button("Adicionar ao ranking")
     if add_to_ranking:
         if not name.strip():
@@ -421,7 +421,7 @@ if abs(difference) < 0.01:
             st.session_state.ranking.append(
                 {
                     "nome": name.strip(),
-                    "xp": int(st.session_state.xp),
+                    "pontos": int(st.session_state.pontos),
                     "nivel": level,
                     "data": datetime.now().strftime("%d/%m/%Y"),
                 }
@@ -435,10 +435,10 @@ else:
     ranking_view = ranking.head(10).copy()
     ranking_view.insert(0, "Posição", range(1, len(ranking_view) + 1))
     ranking_view = ranking_view.rename(
-        columns={"nome": "Nome", "xp": "XP", "nivel": "Nível", "data": "Data"}
+        columns={"nome": "Nome", "pontos": "Pontos", "nivel": "Nível", "data": "Data"}
     )
     st.dataframe(ranking_view, use_container_width=True, hide_index=True)
-    chart_data = ranking.head(5).set_index("nome")[["xp"]].rename(columns={"xp": "XP"})
+    chart_data = ranking.head(5).set_index("nome")[["xp"]].rename(columns={"pontos": "Pontos"})
     st.bar_chart(chart_data)
     st.download_button(
         "📄 Baixar ranking em PDF",
