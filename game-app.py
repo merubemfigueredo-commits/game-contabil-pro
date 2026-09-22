@@ -261,12 +261,12 @@ with st.sidebar:
     st.subheader("Como jogar")
     st.markdown(
         "1. Registre fatos no **Diário**.\n"
-        "2. Confira a balança no **Balanço Patrimonial**.\n"
+        "2. Confira o balanço no **Balanço Patrimonial**.\n"
         "3. Resolva um desafio para ganhar pontos.\n"
         "4. Adicione seu resultado e baixe o ranking em PDF."
     )
 
-st.title("🏆 Contabilidade Game PRO")
+st.title("🏆 Game Contábil PRO")
 st.write("Aprenda lançamentos contábeis na prática, com feedback imediato.")
 
 balances = calculate_balances(st.session_state.lancamentos)
