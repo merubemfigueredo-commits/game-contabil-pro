@@ -421,7 +421,7 @@ ranking = ranking_dataframe()
 
 if abs(difference) < 0.01:
     with st.form("ranking_form"):
-        name = st.text_input("Seu nome", max_chars=40, placeholder="Ex.: Rubem")
+        name = st.text_input("Seu nome", max_chars=40, placeholder="Ex.: Rubem Alves Figueredo")
         add_to_ranking = st.form_submit_button("Adicionar ao ranking")
     if add_to_ranking:
         if not name.strip():
