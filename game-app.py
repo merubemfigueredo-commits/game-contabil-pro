@@ -23,7 +23,7 @@ PLANO = {
     "Banco": "Ativo",
     "Estoque": "Ativo",
     "Clientes": "Ativo",
-    "Veículo": "Ativo",
+    "Veiculo": "Ativo",
     "Fornecedores": "Passivo",
     "Empréstimos": "Passivo",
     "Contas a Pagar": "Passivo",
@@ -69,8 +69,8 @@ CHALLENGES = [
         "correct": {"debito": "Caixa", "credito": "Receita de Serviços", "valor": 900.00},
     },
       {
-        "title": "Pagamento de Fornecedor",
-        "scenario": "Pagamento de fornecedor em dinheiro no valor de 850,00. O lançamento foi feito invertidamente.",
+        "title": "Pagamento de Fornecedores",
+        "scenario": "Pagamento de fornecedores em dinheiro no valor de 850,00. O lançamento foi feito invertidamente.",
         "wrong": {"debito": "Clientes", "credito": "Banco", "valor": 850.00},
         "correct": {"debito": "Fornecedores", "credito": "Caixa", "valor": 850.00},
     },
@@ -96,7 +96,7 @@ CHALLENGES = [
         "title": "Compra de veículo a prazo",
         "scenario": "Aquisição de um veículo, a prazo, para uso da empresa por 45.000,00. O lançamento foi feito debitando Clientes e creditando Veículos.",
         "wrong": {"debito": "Estoque", "credito": "Banco", "valor": 900.00},
-        "correct": {"debito": "Veículo", "credito": "Financiamento", "valor": 900.00},
+        "correct": {"debito": "Veiculo", "credito": "Financiamento", "valor": 900.00},
     },
     {
         "title": "Aquisição de material de consumo",
@@ -119,7 +119,7 @@ CHALLENGES = [
     {
         "title": "Prestação de serviços a prazo",
         "scenario": "Recebimento de serviços prestados, à prazo, no valor de 6.000,00. as contas foram lançadas erradas",
-        "wrong": {"debito": "Caixa", "credito": "Fornecedor", "valor": 6000.00},
+        "wrong": {"debito": "Caixa", "credito": "Fornecedores", "valor": 6000.00},
         "correct": {"debito": "Clientes", "credito": "Receita de serviços", "valor": 6000.00},
     },
      {
