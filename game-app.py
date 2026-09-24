@@ -61,6 +61,36 @@ CHALLENGES = [
         "wrong": {"debito": "Receita de Serviços", "credito": "Caixa", "valor": 900.00},
         "correct": {"debito": "Caixa", "credito": "Receita de Serviços", "valor": 900.00},
     },
+      {
+        "title": "Pagamento de Fornecedor",
+        "scenario": "Pagamento de fornecedor em dinheiro no valor de R$ 850,00. O lançamento foi feito invertidamente.",
+        "wrong": {"debito": "Receita de Serviços", "credito": "Caixa", "valor": 850.00},
+        "correct": {"debito": "Caixa", "credito": "Receita de Serviços", "valor": 850.00},
+    },
+    {
+        "title": "Venda a prazo invertida",
+        "scenario": "Venda de mercadorias a prazo no valor de R$ 3.000,00. O lançamento foi feito debitando "Receita de Vendas" e creditando "Clientes" por R$ 3.100,00.",
+        "wrong": {"debito": "Receita de Serviços", "credito": "Caixa", "valor": 3100.00},
+        "correct": {"debito": "Caixa", "credito": "Receita de Serviços", "valor": 3100.00},
+    },
+    {
+        "title": "Pagamento de aluguel com conta errada",
+        "scenario": "Pagamento de despesa de aluguel por meio do banco no valor de R$ 1.500,00. O lançamento foi feito usando as contas Caixa e Despesas com aluguel R$ 1.000,00.",
+        "wrong": {"debito": "Receita de Serviços", "credito": "Caixa", "valor": 1000.00},
+        "correct": {"debito": "Caixa", "credito": "Receita de Serviços", "valor": 1000.00},
+    },
+    {
+        "title": "Saque de Aplicação para o Caixa",
+        "scenario": "Resgate de aplicação financeira com transferência para o Caixa no valor de R$ 5.000,00. O lançamento foi feito de forma invertida.",
+        "wrong": {"debito": "Receita de Serviços", "credito": "Caixa", "valor": 5000.00},
+        "correct": {"debito": "Caixa", "credito": "Receita de Serviços", "valor": 5000.00},
+    },
+     {
+        "title": "Compra de veículo a prazo",
+        "scenario": "Aquisição de um veículo, a prazo, para uso da empresa por R$ 45.000,00. O lançamento foi feito debitando "Clientes” e creditando "Veículos.",
+        "wrong": {"debito": "Receita de Serviços", "credito": "Caixa", "valor": 900.00},
+        "correct": {"debito": "Caixa", "credito": "Receita de Serviços", "valor": 900.00},
+    },
 ]
 
 
