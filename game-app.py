@@ -50,7 +50,7 @@ CHALLENGES = [
         "correct": {"debito": "Despesa com Aluguel", "credito": "Caixa", "valor": 800.00},
     },
     {
-        "title": "Compra de estoque à vista",
+        "title": "Compra de mercadorias à vista",
         "scenario": "Uma compra de estoque de 1.200,00 foi registrada com as contas invertidas.",
         "wrong": {"debito": "Caixa", "credito": "Estoque", "valor": 1_200.00},
         "correct": {"debito": "Estoque", "credito": "Caixa", "valor": 1_200.00},
@@ -102,6 +102,24 @@ CHALLENGES = [
         "scenario": "Recebimento de duplicata de cliente via banco no valor de 2.400,00. Lançamento invertido de débito e crédito entre ‘Clientes’ e ‘Banco’, registrando Débito: Clientes / Crédito: Banco.",
         "wrong": {"debito": "Cliente", "credito": "Banco", "valor": 2400.00},
         "correct": {"debito": "Banco", "credito": "Cliente", "valor": 2400.00},
+    },
+    {
+        "title": "Venda de mercadorias à vista",
+        "scenario": "Erro de lançamento. O lançamento foi feito em conta indevida. Faça o lançamento correto.",
+        "wrong": {"debito": "Mercadoria", "credito": "Banco", "valor": 8000.00},
+        "correct": {"debito": "Caixa", "credito": "Receita de vendas", "valor": 8000.00},
+    },
+    {
+        "title": "Prestação de serviços a prazo",
+        "scenario": "Recebimento de serviços prestados, à prazo, no valor de 6.000,00. as contas foram lançadas erradas",
+        "wrong": {"debito": "Caixa", "credito": "Fornecedor", "valor": 6000.00},
+        "correct": {"debito": "Clientes", "credito": "Receita de serviços", "valor": 6000.00},
+    },
+     {
+        "title": "Compra de material de limpeza em dinheiro. valor 400,00",
+        "scenario": "As contas foram lançadas erradas",
+        "wrong": {"debito": "Fornecedor", "credito": "Caixa", "valor": 400.00},
+        "correct": {"debito": "Despesa com material de limpeza", "credito": "Caixa", "valor": 400.00},
     },
 ]
 
