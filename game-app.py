@@ -87,7 +87,7 @@ CHALLENGES = [
     },
      {
         "title": "Compra de veículo a prazo",
-        "scenario": "Aquisição de um veículo, a prazo, para uso da empresa por R$ 45.000,00. O lançamento foi feito debitando "Clientes” e creditando "Veículos.",
+        "scenario": "Aquisição de um veículo, a prazo, para uso da empresa por R$ 45.000,00. O lançamento foi feito debitando Clientes e creditando Veículos.",
         "wrong": {"debito": "Receita de Serviços", "credito": "Caixa", "valor": 900.00},
         "correct": {"debito": "Caixa", "credito": "Receita de Serviços", "valor": 900.00},
     },
