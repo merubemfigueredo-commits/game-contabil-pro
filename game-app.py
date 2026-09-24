@@ -488,7 +488,7 @@ else:
         help="Baixa a classificação atual desta sessão em formato PDF.",
     )
 
-with st.expander("📚 Natureza das contas"):
+with st.expander("📚 Classificação das contas"):
     nature = pd.DataFrame(
         [{"Conta": account, "Grupo": group} for account, group in PLANO.items()]
     )
