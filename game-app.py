@@ -97,6 +97,12 @@ CHALLENGES = [
         "wrong": {"debito": "Caixa", "credito": "Contas a pagar", "valor": 600.00},
         "correct": {"debito": "Materiais de consumo", "credito": "Caixa", "valor": 600.00},
     },
+    {
+        "title": "Aquisição de material de consumo",
+        "scenario": "Recebimento de duplicata de cliente via banco no valor de 2.400,00. Lançamento invertido de débito e crédito entre ‘Clientes’ e ‘Banco’, registrando Débito: Clientes / Crédito: Banco.",
+        "wrong": {"debito": "Cliente", "credito": "Banco", "valor": 2400.00},
+        "correct": {"debito": "Banco", "credito": "Cliente", "valor": 2400.00},
+    },
 ]
 
 
