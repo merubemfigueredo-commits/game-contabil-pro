@@ -23,11 +23,13 @@ PLANO = {
     "Banco": "Ativo",
     "Estoque": "Ativo",
     "Clientes": "Ativo",
+    "Veículo": "Ativo",
     "Fornecedores": "Passivo",
     "Empréstimos": "Passivo",
     "Contas a Pagar": "Passivo",
     "Financiamento": "Passivo",
     "Capital Social": "PL",
+    "Receitas": "Receita",
     "Receita de Vendas": "Receita",
     "Receita de Serviços": "Receita",
     "Aplicação Financeira": "Receita",
@@ -70,13 +72,13 @@ CHALLENGES = [
         "title": "Pagamento de Fornecedor",
         "scenario": "Pagamento de fornecedor em dinheiro no valor de 850,00. O lançamento foi feito invertidamente.",
         "wrong": {"debito": "Clientes", "credito": "Banco", "valor": 850.00},
-        "correct": {"debito": "Fornecedor", "credito": "Caixa", "valor": 850.00},
+        "correct": {"debito": "Fornecedores", "credito": "Caixa", "valor": 850.00},
     },
     {
         "title": "Venda a prazo invertida",
         "scenario": "Venda de mercadorias a prazo no valor de 3.000,00. O lançamento foi feito debitando Receita de Vendas e creditando Clientes por 3.100,00.",
-        "wrong": {"debito": "Contas a pagar", "credito": "Fornecedor", "valor": 3100.00},
-        "correct": {"debito": "Fornecedor", "credito": "Estoque", "valor": 3100.00},
+        "wrong": {"debito": "Contas a pagar", "credito": "Fornecedores", "valor": 3100.00},
+        "correct": {"debito": "Fornecedores", "credito": "Estoque", "valor": 3100.00},
     },
     {
         "title": "Pagamento de aluguel",
@@ -88,7 +90,7 @@ CHALLENGES = [
         "title": "Saque de Aplicação direto para o Caixa",
         "scenario": "Resgate de aplicação financeira com transferência para o Caixa no valor de 5.000,00. O lançamento foi feito de forma invertida.",
         "wrong": {"debito": "Receitas", "credito": "Caixa", "valor": 5000.00},
-        "correct": {"debito": "Caixa", "credito": "Aplicação financeira", "valor": 5000.00},
+        "correct": {"debito": "Caixa", "credito": "Aplicação Financeira", "valor": 5000.00},
     },
      {
         "title": "Compra de veículo a prazo",
@@ -105,8 +107,8 @@ CHALLENGES = [
     {
         "title": "Aquisição de material de consumo",
         "scenario": "Recebimento de duplicata de cliente via banco no valor de 2.400,00. Lançamento invertido de débito e crédito entre ‘Clientes’ e ‘Banco’, registrando Débito: Clientes / Crédito: Banco.",
-        "wrong": {"debito": "Cliente", "credito": "Banco", "valor": 2400.00},
-        "correct": {"debito": "Banco", "credito": "Cliente", "valor": 2400.00},
+        "wrong": {"debito": "Clientes", "credito": "Banco", "valor": 2400.00},
+        "correct": {"debito": "Banco", "credito": "Clientes", "valor": 2400.00},
     },
     {
         "title": "Venda de mercadorias à vista",
@@ -123,7 +125,7 @@ CHALLENGES = [
      {
         "title": "Compra de material de limpeza em dinheiro. valor 400,00",
         "scenario": "As contas foram lançadas erradas",
-        "wrong": {"debito": "Fornecedor", "credito": "Caixa", "valor": 400.00},
+        "wrong": {"debito": "Fornecedores", "credito": "Caixa", "valor": 400.00},
         "correct": {"debito": "Despesa com material de limpeza", "credito": "Caixa", "valor": 400.00},
     },
 ]
