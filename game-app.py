@@ -69,7 +69,7 @@ CHALLENGES = [
     },
     {
         "title": "Venda a prazo invertida",
-        "scenario": "Venda de mercadorias a prazo no valor de R$ 3.000,00. O lançamento foi feito debitando "Receita de Vendas" e creditando "Clientes" por R$ 3.100,00.",
+        "scenario": "Venda de mercadorias a prazo no valor de R$ 3.000,00. O lançamento foi feito debitando Receita de Vendas e creditando Clientes por R$ 3.100,00.",
         "wrong": {"debito": "Receita de Serviços", "credito": "Caixa", "valor": 3100.00},
         "correct": {"debito": "Caixa", "credito": "Receita de Serviços", "valor": 3100.00},
     },
