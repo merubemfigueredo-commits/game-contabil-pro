@@ -84,7 +84,7 @@ CHALLENGES = [
         "title": "Pagamento de aluguel",
         "scenario": "Pagamento de despesa de aluguel por meio do banco no valor de 1.500,00. O lançamento foi feito usando as contas Caixa e Despesas com aluguel 1.000,00.",
         "wrong": {"debito": "Contas a Pagar", "credito": "Caixa", "valor": 1000.00},
-        "correct": {"debito": "Despesa com Aluguel", "credito": "Banco", "valor": 1000.00},
+        "correct": {"debito": "Despesa com Aluguel", "credito": "Banco", "valor": 1500.00},
     },
     {
         "title": "Saque de Aplicação direto para o Caixa",
