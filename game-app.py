@@ -25,12 +25,17 @@ PLANO = {
     "Clientes": "Ativo",
     "Fornecedores": "Passivo",
     "Empréstimos": "Passivo",
+    "Contas a Pagar": "Passivo",
+    "Financiamento": "Passivo",
     "Capital Social": "PL",
     "Receita de Vendas": "Receita",
     "Receita de Serviços": "Receita",
+    "Aplicação Financeira": "Receita",
     "Custo das Mercadorias": "Despesa",
     "Despesa com Salários": "Despesa",
     "Despesa com Aluguel": "Despesa",
+    "Materiais de consumo": "Despesa",
+    "Despesa com material de limpeza": "Despesa",
 }
 
 INITIAL_ENTRIES = [
@@ -88,7 +93,7 @@ CHALLENGES = [
      {
         "title": "Compra de veículo a prazo",
         "scenario": "Aquisição de um veículo, a prazo, para uso da empresa por 45.000,00. O lançamento foi feito debitando Clientes e creditando Veículos.",
-        "wrong": {"debito": "Mercadorias", "credito": "Banco", "valor": 900.00},
+        "wrong": {"debito": "Estoque", "credito": "Banco", "valor": 900.00},
         "correct": {"debito": "Veículo", "credito": "Financiamento", "valor": 900.00},
     },
     {
@@ -106,7 +111,7 @@ CHALLENGES = [
     {
         "title": "Venda de mercadorias à vista",
         "scenario": "Erro de lançamento. O lançamento foi feito em conta indevida. Faça o lançamento correto.",
-        "wrong": {"debito": "Mercadoria", "credito": "Banco", "valor": 8000.00},
+        "wrong": {"debito": "Estoque", "credito": "Banco", "valor": 8000.00},
         "correct": {"debito": "Caixa", "credito": "Receita de vendas", "valor": 8000.00},
     },
     {
