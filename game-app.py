@@ -77,14 +77,14 @@ CHALLENGES = [
     {
         "title": "Venda a prazo invertida",
         "scenario": "Venda de mercadorias a prazo no valor de 3.000,00. O lançamento foi feito debitando Receita de Vendas e creditando Clientes por 3.100,00.",
-        "wrong": {"debito": "Contas a pagar", "credito": "Fornecedores", "valor": 3100.00},
-        "correct": {"debito": "Fornecedores", "credito": "Estoque", "valor": 3100.00},
+        "wrong": {"debito": "Contas a Pagar", "credito": "Fornecedores", "valor": 3100.00},
+        "correct": {"debito": "Fornecedores", "credito": "Receita de Vendas", "valor": 3000.00},
     },
     {
         "title": "Pagamento de aluguel",
         "scenario": "Pagamento de despesa de aluguel por meio do banco no valor de 1.500,00. O lançamento foi feito usando as contas Caixa e Despesas com aluguel 1.000,00.",
-        "wrong": {"debito": "Contas a pagar", "credito": "Caixa", "valor": 1000.00},
-        "correct": {"debito": "Despesa com aluguel", "credito": "Banco", "valor": 1000.00},
+        "wrong": {"debito": "Contas a Pagar", "credito": "Caixa", "valor": 1000.00},
+        "correct": {"debito": "Despesa com Aluguel", "credito": "Banco", "valor": 1000.00},
     },
     {
         "title": "Saque de Aplicação direto para o Caixa",
@@ -95,13 +95,13 @@ CHALLENGES = [
      {
         "title": "Compra de veículo a prazo",
         "scenario": "Aquisição de um veículo, a prazo, para uso da empresa por 45.000,00. O lançamento foi feito debitando Clientes e creditando Veículos.",
-        "wrong": {"debito": "Estoque", "credito": "Banco", "valor": 900.00},
-        "correct": {"debito": "Veiculo", "credito": "Financiamento", "valor": 900.00},
+        "wrong": {"debito": "Estoque", "credito": "Banco", "valor": 45000.00},
+        "correct": {"debito": "Veiculo", "credito": "Financiamento", "valor": 45000.00},
     },
     {
-        "title": "Aquisição de material de consumo",
+        "title": "Aquisição, à vista, de material de consumo",
         "scenario": "Compra de material de escritório a prazo no valor de R$ 600,00. Faça o lançamento corretamente.",
-        "wrong": {"debito": "Caixa", "credito": "Contas a pagar", "valor": 600.00},
+        "wrong": {"debito": "Caixa", "credito": "Contas a Pagar", "valor": 600.00},
         "correct": {"debito": "Materiais de consumo", "credito": "Caixa", "valor": 600.00},
     },
     {
@@ -114,13 +114,13 @@ CHALLENGES = [
         "title": "Venda de mercadorias à vista",
         "scenario": "Erro de lançamento. O lançamento foi feito em conta indevida. Faça o lançamento correto.",
         "wrong": {"debito": "Estoque", "credito": "Banco", "valor": 8000.00},
-        "correct": {"debito": "Caixa", "credito": "Receita de vendas", "valor": 8000.00},
+        "correct": {"debito": "Caixa", "credito": "Receita de Vendas", "valor": 8000.00},
     },
     {
         "title": "Prestação de serviços a prazo",
         "scenario": "Recebimento de serviços prestados, à prazo, no valor de 6.000,00. as contas foram lançadas erradas",
         "wrong": {"debito": "Caixa", "credito": "Fornecedores", "valor": 6000.00},
-        "correct": {"debito": "Clientes", "credito": "Receita de serviços", "valor": 6000.00},
+        "correct": {"debito": "Clientes", "credito": "Receita de Serviços", "valor": 6000.00},
     },
      {
         "title": "Compra de material de limpeza em dinheiro. valor 400,00",
