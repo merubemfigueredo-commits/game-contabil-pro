@@ -35,7 +35,6 @@ PLANO = {
     "Equipamentos (Imobilizado)": "Ativo",
     "Adiantamento de Salários (Ativo)": "Ativo",
     "Fornecedores": "Passivo",
-    "Empréstimos": "Passivo",
     "Empréstimos Bancários a Pagar": "Passivo",
     "Contas a Pagar": "Passivo",
     "Financiamento": "Passivo",
@@ -50,8 +49,7 @@ PLANO = {
     "Receita de Vendas de Mercadorias": "Receita",
     "Aplicação Financeira": "Receita",
     "Custo das Mercadorias": "Despesa",
-    "Despesa com Salários": "Despesa",
-    "Despesa de Salários": "Despesa",
+    "Despesa com Salários": "Despesa",    
     "Despesa com Aluguel": "Despesa",
     "Materiais de consumo": "Despesa",
     "Despesa com material de limpeza": "Despesa",
@@ -152,9 +150,6 @@ CHALLENGES = [
     },
 ]
 
-# Os 13 lançamentos abaixo foram transcritos do PDF fornecido. O campo
-# "wrong" mantém o contraexemplo do material para que o feedback explique
-# exatamente o erro cometido.
 LANCAMENTOS = [
     {
         "numero": 1,
@@ -188,8 +183,8 @@ LANCAMENTOS = [
         "numero": 5,
         "titulo": "Reconhecimento de Despesa de Salários",
         "scenario": "Reconhecimento da folha de pagamento de R$ 18.000,00, com pagamento no mês seguinte.",
-        "correct": {"debito": "Despesa de Salários", "credito": "Salários a Pagar", "valor": 18000.00},
-        "wrong": {"debito": "Despesa de Salários", "credito": "Bancos Conta Movimento", "valor": 18000.00},
+        "correct": {"debito": "Despesa com Salários", "credito": "Salários a Pagar", "valor": 18000.00},
+        "wrong": {"debito": "Despesa com Salários", "credito": "Bancos Conta Movimento", "valor": 18000.00},
     },
     {
         "numero": 6,
@@ -231,7 +226,7 @@ LANCAMENTOS = [
         "titulo": "Adiantamento de Salário a Funcionário",
         "scenario": "Adiantamento salarial de R$ 1.200,00 pago por cheque da conta corrente da empresa.",
         "correct": {"debito": "Adiantamento de Salários (Ativo)", "credito": "Bancos Conta Movimento", "valor": 1200.00},
-        "wrong": {"debito": "Despesa de Salários", "credito": "Bancos Conta Movimento", "valor": 1200.00},
+        "wrong": {"debito": "Despesa com Salários", "credito": "Bancos Conta Movimento", "valor": 1200.00},
     },
     {
         "numero": 12,
